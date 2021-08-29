@@ -26,7 +26,7 @@ Each answer will have a small sample JS code that demonstrates the specified beh
 ```js
 const numsArray = [0, 1, 2, 3, 4, 5];
 
-const isEven = (number: number) => {
+const isEven = (number) => {
   return number % 2 === 0 ? true : false;
 }
 
