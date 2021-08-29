@@ -11,7 +11,7 @@ In this article, I will touch on several options for organizing the interaction 
 
 I will try to compare these three methods of processing the chain of asynchronous events according to the following criteria and, based on these criteria, determine for each what field of application it has - that is, which tasks with its help are more convenient or more efficient, and which are not.
 
-![](https://github.com/aleksandrtamrazov/.png?raw=true)
+![](https://github.com/aleksandrtamrazov/Comparative-analysis/blob/master/img/mainTable.png)
 
 
 # Contributing
