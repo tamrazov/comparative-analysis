@@ -13,6 +13,7 @@ I will try to compare these three methods of processing the chain of asynchronou
 
 ![](https://github.com/aleksandrtamrazov/Comparative-analysis/blob/master/img/mainTable.png)
 
+Each answer will have a small sample JS code that demonstrates the specified behavior. The answer for each criterion can contain two options (callbacks can be used to organize both synchronous and asynchronous interaction), in which case both options should be considered.
 
 # Contributing
 The main purpose of this repository is to continue evolving me and you. You are welcome!
