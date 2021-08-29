@@ -15,5 +15,54 @@ I will try to compare these three methods of processing the chain of asynchronou
 
 Each answer will have a small sample JS code that demonstrates the specified behavior. The answer for each criterion can contain two options (callbacks can be used to organize both synchronous and asynchronous interaction), in which case both options should be considered.
 
+# Main
+
+#### Callback/Sync
+
+Этот подход предпочтителен для .....
+
+Блокирует цикл событий
+
+```js
+const numsArray = [0, 1, 2, 3, 4, 5];
+
+const isEven = (number: number) => {
+  return number % 2 === 0 ? true : false;
+}
+
+const result = numsArray.map(isEven) // [true, false, true, false, true, false]
+```
+
+В этом примере функция isEven является callback и код синхронный 
+Этот подход полезен если вы не делаете ассинхронных операций которые могут занять какое-то время и вернуть непонятный результат
+
+Выподнение этого кода приводит к блокировке цикла событий, да?
+
+С помощью такого подхода эффективно решать многие синхронные задачи
+
+#### callback/async
+
+Этот подход нужен для выполнения ассинхронных операции, таких как работа с файловой системой и запросов на сервер
+
+```js
+
+const callback = () => console.log('I`m from async callback');
+
+setTimeout(callback, 2000);
+
+console.log('I`m from sync code')
+
+// I`m from sync code
+// I`m from async callback
+
+```
+
+Код не блокирует цикл событий поэтому ...
+
+Но если много-чего, то настанет callback-hell
+
+Такой способ реализаций ассинхронных событий устарел после появления Promise
+
+
 # Contributing
 The main purpose of this repository is to continue evolving me and you. You are welcome!
