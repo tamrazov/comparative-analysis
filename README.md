@@ -63,6 +63,10 @@ console.log('I`m from sync code')
 
 Такой способ реализаций ассинхронных событий устарел после появления Promise
 
+#### callback/statefull
+
+
+#### callback/stateless
 
 # Contributing
-The main purpose of this repository is to continue evolving me and you. You are welcome!
+The main purpose of this repository is to continue evolving me and you. I'll accept any help. You are welcome!
