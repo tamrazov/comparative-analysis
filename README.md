@@ -27,7 +27,7 @@ Each answer will have a small sample JS code that demonstrates the specified beh
 const numsArray = [0, 1, 2, 3, 4, 5];
 
 const isEven = (number) => {
-  return number % 2 === 0 ? true : false;
+  return number % 2 === 0;
 }
 
 const result = numsArray.map(isEven) // [true, false, true, false, true, false]
