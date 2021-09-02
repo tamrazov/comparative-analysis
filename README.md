@@ -19,7 +19,9 @@ Each answer will have a small sample JS code that demonstrates the specified beh
 
 #### Callback/Sync
 
-Этот подход предпочтителен для .....
+Способ расширения функционала, элемент проектирования
+
+Этот подход предпочтителен для ..... функциональной композиций  
 
 Блокирует цикл событий
 
@@ -44,6 +46,8 @@ const result = numsArray.map(isEven) // [true, false, true, false, true, false]
 
 Этот подход нужен для выполнения ассинхронных операции, таких как работа с файловой системой и запросов на сервер
 
+
+
 ```js
 
 const callback = () => console.log('I`m from async callback');
@@ -67,6 +71,48 @@ console.log('I`m from sync code')
 
 
 #### callback/stateless
+
+#### yald/sync
+
+Паттерн трансдьюсер
+
+Каждый по очереди проходит через всю цепочку
+
+НА коллбеках можно но не так красиво ...
+
+#### yald/async
+
+Природа генератора распологает к асинх
+
+сделат фетч и возобновить генератор
+
+пример с генератором и коллбек
+
+редак сага сравнить redux-thunk 
+
+#### ee/sunc
+
+Rx.js 
+
+Паттерн обсервебр наблюдатель
+
+
+#### cb/statefull // stateless
+
+генераторы стейфулл у них есть состояние , стейт машина , 
+
+пуш.пулл про то как вызывается код
+
+некс это пулл подход
+
+
+
+редак чистый 
+
+состояние тоже сайд эффект
+
+
+
 
 # Contributing
 The main purpose of this repository is to continue evolving me and you. I'll accept any help. You are welcome!
