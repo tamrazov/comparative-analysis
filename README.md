@@ -1,37 +1,33 @@
 # Comparative-analysis
-Comparative analysis of approaches to organizing interaction in application
+Сравнительный анализ подходов к организации взаимодействия в приложении
 
 # Motivation
-I am writing this in order to understand this.
+Я пишу эту статью для своего доклада и для того, чтобы самому поглубже погрузиться в архитектуру приложений
 
 # About
 In this article, I will touch on several options for organizing the interaction of various parts of our application - these are callback functions (callbacks), generators (yeild) and the message exchange bus (eventemitter).
 
+В этой статье я затрону несколько вариантов организации взаимодействия различных частей frontend приложений — это callback-функции (callbacks), генераторы (yield) и шина обмена сообщениями (eventemitter).
+
 # How it works
 
-I will try to compare these three methods of processing the chain of asynchronous events according to the following criteria and, based on these criteria, determine for each what field of application it has - that is, which tasks with its help are more convenient or more efficient, and which are not.
+Я попытаюсь сравнить эти три метода обработки цепочки синхронных/асинхронных событий по следующим критериям и на основе этих критериев определить для каждого, какую область применения он имеет - то есть какие задачи с его помощью удобнее или более эффективные, а какие нет.
 
 ![](https://github.com/aleksandrtamrazov/Comparative-analysis/blob/master/img/mainTable.png)
 
-Each answer will have a small sample JS code that demonstrates the specified behavior. The answer for each criterion can contain two options (callbacks can be used to organize both synchronous and asynchronous interaction), in which case both options should be considered.
+Каждый ответ будет иметь небольшой пример кода JS, демонстрирующий указанное поведение. Ответ по каждому критерию может содержать два варианта (callback могут использоваться для организации как синхронного, так и асинхронного взаимодействия), в этом случае следует рассматривать оба варианта.
 
 # Main
 
-Я Саша, пишу про js.
+### Callback
 
-### Всем читающим эту статью здрасте. Сегодня я хотел бы поделиться с вами разбором таблицы. Негативные комментарии, касающиеся моего кода и реализации поддерживаются. Настоятельно рекомендую вам высказаться по поводу всего.
+Колбэк-функция (или обратный вызов) - это функция, переданная в другую функцию в качестве аргумента, которая затем вызывается по завершению какого-либо действия.
 
-Я попытаюсь сравнить эти три метода обработки цепочки асинхронных событий по следующим критериям и на основе этих критериев определить для каждого, какую область применения он имеет - то есть какие задачи с его помощью удобнее или более эффективные, а какие нет.
+Коллбэк простая констукция в программировании и она выполняет довольно много полезных действий. Основным плюсом использовать callback-функции - это способ расширения функционала, элемент проектирования функций. Однако callback-функции бывают как синхронные, так и ассинхронные. И тут у них большая разница. ..... (дописать тут немного)
 
-Каждый ответ будет иметь небольшой пример кода JS, демонстрирующий указанное поведение. Ответ по каждому критерию может содержать два варианта (обратные вызовы могут использоваться для организации как синхронного, так и асинхронного взаимодействия), в этом случае следует рассматривать оба варианта.
+#### callback/sync
+Синхронные callback-функции нужны для функциональной композиций. 
 
-Поехали!!!
-
-#### Callback/Sync
-
-Способ расширения функционала, элемент проектирования
-
-Этот подход предпочтителен для ..... функциональной композиций  
 
 Блокирует цикл событий
 
@@ -51,9 +47,13 @@ const result = numsArray.map(isEven) // [true, false, true, false, true, false]
 
 #### callback/async
 
+Ассинхнронные операции выполняются callback функциями для того чтобы вернуть значение из функции.
+
 Этот подход нужен для выполнения ассинхронных операции, таких как работа с файловой системой и запросов на сервер
 
+Рассказать как работает Event loop
 
+Event loop - это способ о
 
 ```js
 
