@@ -200,6 +200,18 @@ function createThunkMiddleware(extraArgument) {
 
 Генераторы можно использовать для ленивых итераций. Если вы знакомы с протоколом "Перебора", этот функционал появлся в 2015 году, тогда вы знаете что они тоже относятся к низкоуровневым констукциям. Эти протоколы говорят движку JS, что данный обект можно итерировать или использовать spread оператор для него. 
 
+```js
+function* culturalAchievements() {
+    yield 'Amazing coffee';
+    yield 'The lovely office';
+    yield 'Friendly atmosphere';
+}
+
+for (achievement of culturalAchievements()) {
+    console.log(`Axenix is known for: ${achievement}`);
+}
+```
+
 
 например redux-saga 
 
