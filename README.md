@@ -202,9 +202,9 @@ function createThunkMiddleware(extraArgument) {
 
 ```js
 function* culturalAchievements() {
-    yield 'Amazing coffee';
-    yield 'The lovely office';
-    yield 'Friendly atmosphere';
+  yield 'Amazing professional people';
+  yield 'The lovely office';
+  yield 'Friendly atmosphere';
 }
 
 for (achievement of culturalAchievements()) {
@@ -212,6 +212,16 @@ for (achievement of culturalAchievements()) {
 }
 ```
 
+Далее давайте расмотрим такую ситуацию, например, ....
+
+```js
+```
+
+такой подход к проетированию функции-генератора называется паттерн трансдюсер
+
+Я не буду вдоваться в подробности генераторов, они могут быть очень полезны, с их помощью можно переписать множется функций высшего порядка таких как map flatMap filter pop pipe 
+
+Однако генераторы умеют еще кое-что, что очень важно для нас. И так 
 
 например redux-saga 
 
