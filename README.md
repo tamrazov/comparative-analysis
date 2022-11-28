@@ -235,7 +235,7 @@ function* filter(predicate, array) {
   }
 }
 
-console.log(...filter()) // Поскольку функции генераторы это итераторы, то используя оператор spread мы получим нужный нам массив
+console.log(...filter()) // Поскольку функции генераторы возвращает итераторы, то используя оператор spread мы получим нужный нам массив
 ```
 
 Так например, стейт менеджер redux-saga, использует для выполнения ассинхроных операций, паттерн сага, а именно функции-генератора.
@@ -254,13 +254,62 @@ let value = fetchProducts(url)
 console.log(value)
 ```
 
-Это очень удобно, и делает код визуально синхронным, как и sync/await
+Это очень удобно, и делает код визуально синхронным, как и async/await
 
-Итак, на генераторах выглядеть будет так
+вот код из под капота redux saga 
 
 ```js
-let value = fetchProducts(url)
-console.log(value)
+function next(arg, isErr) {
+  try {
+    let result
+    if (isErr) {
+      result = iterator.throw(arg)
+      // user handled the error, we can clear bookkept values
+      sagaError.clear()
+    } else if (shouldCancel(arg)) {
+      /**
+        getting TASK_CANCEL automatically cancels the main task
+        We can get this value here
+        - By cancelling the parent task manually
+        - By joining a Cancelled task
+      **/
+      mainTask.status = CANCELLED
+      /**
+        Cancels the current effect; this will propagate the cancellation down to any called tasks
+      **/
+      next.cancel()
+      /**
+        If this Generator has a `return` method then invokes it
+        This will jump to the finally block
+      **/
+      result = is.func(iterator.return) ? iterator.return(TASK_CANCEL) : { done: true, value: TASK_CANCEL }
+    } else if (shouldTerminate(arg)) {
+      // We get TERMINATE flag, i.e. by taking from a channel that ended using `take` (and not `takem` used to trap End of channels)
+      result = is.func(iterator.return) ? iterator.return() : { done: true }
+    } else {
+      result = iterator.next(arg)
+    }
+
+    if (!result.done) {
+      digestEffect(result.value, parentEffectId, next)
+    } else {
+      /**
+        This Generator has ended, terminate the main task and notify the fork queue
+      **/
+      if (mainTask.status !== CANCELLED) {
+        mainTask.status = DONE
+      }
+      mainTask.cont(result.value)
+    }
+  } catch (error) {
+    if (mainTask.status === CANCELLED) {
+      throw error
+    }
+    mainTask.status = ABORTED
+
+    mainTask.cont(error, true)
+  }
+}
 ```
 
 например redux-saga 
