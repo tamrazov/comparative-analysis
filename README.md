@@ -1,23 +1,12 @@
 # Comparative-analysis
 Сравнительный анализ подходов к организации взаимодействия в приложении
 
-# Motivation
 Я пишу эту статью для своего доклада и для того, чтобы самому поглубже погрузиться в архитектуру приложений
-
-# About
-In this article, I will touch on several options for organizing the interaction of various parts of our application - these are callback functions (callbacks), generators (yeild) and the message exchange bus (eventemitter).
-
 В этой статье я затрону несколько вариантов организации взаимодействия различных частей frontend приложений — это callback-функции (callbacks), генераторы (yield) и шина обмена сообщениями (eventemitter).
-
-# How it works
 
 Я попытаюсь сравнить эти три метода обработки цепочки синхронных/асинхронных событий по следующим критериям и на основе этих критериев определить для каждого, какую область применения он имеет - то есть какие задачи с его помощью удобнее или более эффективные, а какие нет.
 
-![](https://github.com/aleksandrtamrazov/Comparative-analysis/blob/master/img/mainTable.png)
-
 Каждый ответ будет иметь небольшой пример кода JS, демонстрирующий указанное поведение. Ответ по каждому критерию может содержать два варианта (callback могут использоваться для организации как синхронного, так и асинхронного взаимодействия), в этом случае следует рассматривать оба варианта.
-
-# Main
 
 ### Callback
 
