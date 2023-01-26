@@ -132,7 +132,7 @@ function next(arg, isErr) {
       next.cancel()
       /**
         If this Generator has a `return` method then invokes it
-        This will jump to the finally block
+        This will jump to the finally blockkdsfjds
       **/
       result = is.func(iterator.return) ? iterator.return(TASK_CANCEL) : { done: true, value: TASK_CANCEL }
     } else if (shouldTerminate(arg)) {
