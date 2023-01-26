@@ -116,7 +116,7 @@ function next(arg, isErr) {
     let result
     if (isErr) {
       result = iterator.throw(arg)
-      // user handled the error, we can clear bookkept values
+      // user handled the error, we can clear bookkept valuesadfsf
       sagaError.clear()
     } else if (shouldCancel(arg)) {
       /**
