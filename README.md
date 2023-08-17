@@ -199,6 +199,7 @@ producer().then(consumer) // 0
 
 Однако, можно воспользоваться push архитектурой, для того чтобы подписывать компоненты на состояние. Этот подход позволит не только увеличить производительность, но и сделает управление состоянием более декларативным, чтобы можно было читать состояния сверху вниз.
 
+### Actor model
 
 # Contributing
 The main purpose of this repository is to continue evolving me and you. I'll accept any help. You are welcome!
