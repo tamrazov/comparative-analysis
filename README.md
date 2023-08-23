@@ -3,7 +3,7 @@
 
 ### Callback
 [Сallback](https://developer.mozilla.org/ru/docs/Glossary/Callback_function) - это способ расширения функционала, элемент проектирования функций. Однако callback-функции, как и обычные функции, бывают как синхронные, так и ассинхронные(точнее сказать помогают сделать отложенный вызов при выполнении [ассинхроных операции](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Asynchronous/Implementing_a_promise-based_API#using_async_and_await_with_the_alarm_api)).
-Синхронные callback-функции нужны для функциональной композиций. Ярким примером является функция [pipe](https://ramdajs.com/docs/#pipe), которая используется очень часто.
+Синхронные callback-функции нужны для функциональной композиций. Ярким примером является функция pipe, реализация которой может быть исполнена в [синхронном](https://ramdajs.com/docs/#pipe) и [aсинхронном](https://nodejs.org/api/stream.html#streampipelinesource-transforms-destination-options) виде.
 ```js
 const reverse = (string) => string.split('').reverse().join('') // Пример синхронной callback-функции
 
